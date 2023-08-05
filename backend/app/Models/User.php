@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
+use Laravel\Sanctum\NewAccessToken;
 
 class User extends Authenticatable
 {
@@ -21,6 +23,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'otp_verified',
+        'otp_enabled',
+        'otp_ascii',
+        'otp_hex',
+        'otp_base',
+        'otp_auth_url',
     ];
 
     /**
@@ -31,6 +39,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'otp_verified',
+        'otp_enabled',
+        'otp_ascii',
+        'otp_hex',
+        'otp_base',
+        'otp_auth_url',
     ];
 
     /**
@@ -42,4 +56,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Overriding the default function of the Sanctum key
+    public function createToken(string $name, array $abilities = ['*'])
+    {
+        $token = $this->tokens()->create([
+            'name' => $name,
+            'token' => hash('sha256', $plainTextToken = Str::random(240)),
+            'abilities' => $abilities,
+        ]);
+        // return $token
+        return new NewAccessToken($token, $token->getKey() . '|' . $plainTextToken);
+    }
 }
