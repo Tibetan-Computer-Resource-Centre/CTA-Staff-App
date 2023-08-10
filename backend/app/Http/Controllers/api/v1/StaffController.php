@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreStaffRequest;
+use App\Http\Requests\UpdateStaffRequest;
+use App\Models\Staff;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -27,7 +30,7 @@ class StaffController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreStaffRequest $storeStaffRequest)
     {
         //
     }
@@ -35,23 +38,16 @@ class StaffController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Staff $staff)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateStaffRequest $updateStaffRequest, Staff $staff)
     {
         //
     }

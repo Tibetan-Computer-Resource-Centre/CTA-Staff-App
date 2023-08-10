@@ -14,16 +14,15 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug',150)->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->text('otp_verified')->default(false);
-            $table->boolean('otp_enabled')->default(false);
+            $table->boolean('otp_verified')->default(false);
+            $table->boolean('otp_enabled')->default(true);
             $table->string('otp_ascii')->nullable();
-            $table->string('otp_hex')->nullable();
-            $table->string('otp_base')->nullable();
-            $table->string('otp_auth_url')->nullable();
+            // $table->string('otp_hex')->nullable();
+            // $table->string('otp_base')->nullable();
+            // $table->string('otp_auth_url')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

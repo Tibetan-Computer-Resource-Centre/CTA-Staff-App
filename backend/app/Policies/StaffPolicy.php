@@ -38,6 +38,9 @@ class StaffPolicy
     public function update(User $user, Staff $staff): bool
     {
         //
+        return $user->id === $staff->user_id || $user->role ==='admin'
+                ? Response::allow()
+                : Response::deny('You do not own this post.');
     }
 
     /**

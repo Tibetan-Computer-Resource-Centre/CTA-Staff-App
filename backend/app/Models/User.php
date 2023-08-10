@@ -26,9 +26,6 @@ class User extends Authenticatable
         'otp_verified',
         'otp_enabled',
         'otp_ascii',
-        'otp_hex',
-        'otp_base',
-        'otp_auth_url',
     ];
 
     /**
@@ -39,12 +36,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'otp_verified',
-        'otp_enabled',
-        'otp_ascii',
-        'otp_hex',
-        'otp_base',
-        'otp_auth_url',
     ];
 
     /**
