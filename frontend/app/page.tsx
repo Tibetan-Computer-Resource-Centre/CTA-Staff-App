@@ -12,7 +12,7 @@ export default function Home() {
   const [loginError, setLoginError] = useState(""); // Login error status
   const [loading, setLoading] = useState(false); //Login authentication loading state
   const [twoFA, setTwoFA] = useState(false); // QRCODE for 2FA
-  const [token,setToken] = useState('');
+  const [token, setToken] = useState("");
   /* Form Input Validation Setting */
   const {
     register,
@@ -30,9 +30,6 @@ export default function Home() {
       });
       setTwoFA(true);
       setToken(user.data);
-      // Set an application cookie for middleware check
-      // Cookies.set("loginStatus", "true");
-      // Redirect the route to staff
       // if login success
       // router.push("/dashboard/staff");
       setLoginError("");
@@ -47,10 +44,10 @@ export default function Home() {
 
   return (
     <div className="page-wrapper" id="main-wrapper">
-      <div className="overflow-hidden radial-gradient min-vh-100">
-        <div className="position-relative z-index-5">
-          <div className="row">
-            {!twoFA ? (
+      {!twoFA ? (
+        <div className="overflow-hidden radial-gradient min-vh-100">
+          <div className="position-relative z-index-5">
+            <div className="row">
               <div className="col-xl-6 col-xxl-4 mx-auto">
                 <div className="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
                   <div className="col-sm-8 col-md-6 col-xl-9">
@@ -97,10 +94,10 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="position-relative text-center my-4">
-                      <p className="mb-0 fs-4 px-3 d-inline-block bg-white text-dark z-index-5 position-relative">
+                      <p className="mb-0 fs-4 px-3 d-inline-block bg-white text-dark z-index-5 position-relative fw-bold">
                         or sign in with
                       </p>
-                      <span className="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
+                      {/* <span className="border-top w-100 position-absolute top-50 start-50 translate-middle"></span> */}
                     </div>
                     <form onSubmit={handleSubmit(login)}>
                       <div className="mb-3">
@@ -209,12 +206,12 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            ) : (
-              <Verify2fa user={token}/>
-            )}
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Verify2fa user={token} />
+      )}
     </div>
   );
 }

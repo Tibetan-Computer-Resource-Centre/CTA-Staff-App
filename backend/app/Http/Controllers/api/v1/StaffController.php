@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreStaffRequest;
-use App\Http\Requests\UpdateStaffRequest;
 use App\Models\Staff;
 use Illuminate\Http\Request;
 
@@ -16,9 +14,8 @@ class StaffController extends Controller
     public function index()
     {
         //
-        return "this is passed";
+        return Staff::orderBy('name','desc')->paginate('3');
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -30,7 +27,7 @@ class StaffController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreStaffRequest $storeStaffRequest)
+    public function store(Request $request)
     {
         //
     }
@@ -38,16 +35,23 @@ class StaffController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Staff $staff)
+    public function show(string $id)
     {
         //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStaffRequest $updateStaffRequest, Staff $staff)
+    public function update(Request $request, string $id)
     {
         //
     }

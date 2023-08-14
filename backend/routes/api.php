@@ -7,6 +7,7 @@ use App\Http\Controllers\api\v1\StaffController;
 use App\Http\Controllers\api\v1\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Migrate;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,19 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::prefix('migrate')->group(function (){
+    Route::get('staffs',          [Migrate::class,'staff']);
+    // Route::get('documents',       [Migrate::class,'document']);
+    // Route::get('families',        [Migrate::class,'family']);
+    // Route::get('retirements',     [Migrate::class,'retirement']);
+    // Route::get('leaves',          [Migrate::class,'leave']);
+    // Route::get('experiences',     [Migrate::class,'experience']);
+    // Route::get('promotions',      [Migrate::class,'promotion']);
+    // Route::get('otherRanks',      [Migrate::class,'otherRank']);
+    // Route::get('postAllocations', [Migrate::class,'postAllocation']);
+    // Route::get('dropTables',      [Migrate::class,'dropTable']);
+
+});
 // Testing API for the app up and running 
 Route::group(['prefix' => 'v1'],function(){
     Route::get('test',function(Request $request){

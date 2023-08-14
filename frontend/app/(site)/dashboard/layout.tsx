@@ -33,7 +33,7 @@ export default function RootLayout({
       <Sidebar />
       <div className="body-wrapper">
         <Navbar />
-        <div className="container-fluid">{children}</div>
+        <div className="container-fluid" style={{"max-width":"inherit"}}>{children}</div>
       </div>
     </div>
   );

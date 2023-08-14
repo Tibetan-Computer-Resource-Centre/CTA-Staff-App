@@ -12,21 +12,31 @@ export default function Navbar() {
   return (
     <header className="app-header fixed-header">
       <nav className="navbar navbar-expand-lg navbar-light">
-      <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link href="/" className="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse">
-                  <i className="ti ti-menu-2"></i>
-                </Link>
-              </li>
-              <li className="nav-item d-none d-lg-block">
-                <Link href="/" className="nav-link nav-icon-hover" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  <i className="ti ti-search"></i>
-                </Link>
-              </li>
-            </ul>
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link
+              href="/"
+              className="nav-link sidebartoggler nav-icon-hover ms-n3"
+              id="headerCollapse"
+            >
+              <i className="ti ti-menu-2"></i>
+            </Link>
+          </li>
+          <li className="nav-item d-none d-lg-block">
+            <Link
+              href="/"
+              className="nav-link nav-icon-hover"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <i className="ti ti-search"></i>
+            </Link>
+          </li>
+        </ul>
         <ul className="navbar-nav">
           <li className="nav-item d-block d-xl-none">
-            <Link href="/"
+            <Link
+              href="/"
               className="nav-link sidebartoggler nav-icon-hover"
               id="headerCollapse"
             >
@@ -41,26 +51,42 @@ export default function Navbar() {
           </li>
         </ul>
         <ul className="navbar-nav quick-links d-none d-lg-flex">
-              <li className="nav-item dropdown hover-dd d-none d-lg-block">
-                <Link href="/" className="nav-link" data-bs-toggle="dropdown">Staffs<span className="mt-1"><i className="ti ti-chevron-down"></i></span></Link>
-              </li>
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link href="/" className="nav-link" >Leaves</Link>
-              </li>
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link href="/" className="nav-link">Designations</Link>
-              </li>
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link href="/" className="nav-link">Statistic</Link>
-              </li>
-            </ul>
+          <li className="nav-item dropdown hover-dd d-none d-lg-block">
+            <Link
+              href="/dashboard/staff"
+              className="nav-link"
+              data-bs-toggle="dropdown"
+            >
+              Staffs
+              <span className="mt-1">
+                <i className="ti ti-chevron-down"></i>
+              </span>
+            </Link>
+          </li>
+          <li className="nav-item dropdown-hover d-none d-lg-block">
+            <Link href="/" className="nav-link">
+              Leaves
+            </Link>
+          </li>
+          <li className="nav-item dropdown-hover d-none d-lg-block">
+            <Link href="/" className="nav-link">
+              Designations
+            </Link>
+          </li>
+          <li className="nav-item dropdown-hover d-none d-lg-block">
+            <Link href="/" className="nav-link">
+              Statistic
+            </Link>
+          </li>
+        </ul>
         <div
           className="navbar-collapse justify-content-end px-0"
           id="navbarNav"
         >
           <ul className="navbar-nav flex-row ms-auto align-items-center justify-content-end">
             <li className="nav-item dropdown">
-              <Link href="/"
+              <Link
+                href="/"
                 className="nav-link nav-icon-hover"
                 id="drop2"
                 data-bs-toggle="dropdown"
@@ -78,7 +104,8 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="d-flex align-items-center justify-content-between">
-            <Link href="/"
+            <Link
+              href="/"
               className="nav-link d-flex d-lg-none align-items-center justify-content-center"
               type="button"
               data-bs-toggle="offcanvas"
@@ -89,7 +116,8 @@ export default function Navbar() {
             </Link>
             <ul className="navbar-nav flex-row ms-auto align-items-center justify-content-center">
               <li className="nav-item dropdown">
-                <Link href="/"
+                <Link
+                  href="/"
                   className="nav-link pe-0 show"
                   id="drop1"
                   data-bs-toggle="dropdown"
@@ -112,6 +140,17 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+      {/* BreadCrumb */}
+      {/* <nav aria-label="breadcrumb" className="my-2">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
+            <a href="#">Home</a>
+          </li>
+          <li className="breadcrumb-item active" aria-current="page">
+            Library
+          </li>
+        </ol>
+      </nav> */}
     </header>
   );
 }

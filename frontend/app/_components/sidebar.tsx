@@ -18,7 +18,7 @@ export default function Sidebar() {
               <span className="hide-menu">Home</span>
             </li>
             <li className="sidebar-item">
-              <Link className="sidebar-link active" href="./index.html" aria-expanded="false">
+              <Link className="sidebar-link active" href="/dashboard" aria-expanded="false">
                 <span>
                   <i className="ti ti-layout-dashboard"></i>
                 </span>

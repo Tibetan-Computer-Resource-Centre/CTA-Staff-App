@@ -3,23 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\AppointmentCategory;
 use App\Models\Contract;
+use App\Models\Country;
+use App\Models\Designation;
 use App\Models\Document;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Family;
 use App\Models\Honour;
 use App\Models\JobHistory;
+use App\Models\JobHistoryCategory;
 use App\Models\Leave;
+use App\Models\Office;
 use App\Models\PostAllocation;
 use App\Models\PostAllocationData;
 use App\Models\Probation;
+use App\Models\Relation;
 use App\Models\RetirementExtension;
 use App\Models\Staff;
+use App\Models\State;
+use App\Models\Status;
+use App\Models\Town;
 use App\Models\Training;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
     //
     function validateDate($date, $format = 'Y-m-d')
@@ -161,7 +171,7 @@ function emptyDB()
 {
     DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-    Staff::truncate();
+    // Staff::truncate();
     Address::truncate();
     Probation::truncate();
     Honour::truncate();
@@ -175,7 +185,7 @@ function emptyDB()
     Leave::truncate();
     Experience::truncate();
     Training::truncate();
-    Education::truncate();
+    // Education::truncate();
 
     DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 }
@@ -186,7 +196,6 @@ class migrate extends Controller
     public function staff()
     {
         emptyDB();
-
         $count = 0;
         $duplicateStaffId = 0;
         $probationCount = 0;
@@ -235,11 +244,11 @@ class migrate extends Controller
             $s->save();
             $count++;
 
-            $row->image = makeNull($row->image);
-            if ($row->image && File::exists(public_path('upload_psc/' . $row->image))) {
-                $pathToFile = public_path('upload_psc/' . $row->image);
-                $s->addMedia($pathToFile)->toMediaCollection('mugshot');
-            }
+            // $row->image = makeNull($row->image);
+            // if ($row->image && File::exists(public_path('upload_psc/' . $row->image))) {
+            //     $pathToFile = public_path('upload_psc/' . $row->image);
+            //     $s->addMedia($pathToFile)->toMediaCollection('mugshot');
+            // }
 
             /**
              * Add staff's honour 

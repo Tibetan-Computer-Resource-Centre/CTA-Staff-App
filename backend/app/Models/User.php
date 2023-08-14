@@ -59,4 +59,10 @@ class User extends Authenticatable
         // return $token
         return new NewAccessToken($token, $token->getKey() . '|' . $plainTextToken);
     }
+
+    // Relationship Tables
+    public function staff()
+    {
+        return $this->hasMany(Staff::class);
+    }
 }
